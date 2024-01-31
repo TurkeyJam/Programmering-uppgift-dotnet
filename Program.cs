@@ -1,4 +1,4 @@
-﻿using SadConsole.Configuration;
+﻿/*using SadConsole.Configuration;
 
 Settings.WindowTitle = "My SadConsole Game";
 
@@ -20,4 +20,25 @@ static void Startup(object? sender, GameHost host)
     Game.Instance.StartingConsole.SetBackground(18, 4, Color.DarkCyan);
     // X, Y, Glyph index or character
     Game.Instance.StartingConsole.SetGlyph(4, 4, '@'); // use '@' or 1, they're the same index glyph
+}*/
+using SadConsole.Configuration;
+
+Settings.WindowTitle = "My SadConsole Game";
+
+Builder configuration = new Builder()
+    .SetScreenSize(90, 30)
+    .UseDefaultConsole()
+    .OnStart(Startup)
+    ;
+
+Game.Create(configuration);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void Startup(object? sender, GameHost host)
+{
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException("You should never have this error if you used the UseDefaultConsole startup code.");
+
+    Console startingConsole = Game.Instance.StartingConsole;
 }
