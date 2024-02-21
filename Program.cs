@@ -62,9 +62,9 @@ static void Startup(object? sender, GameHost host)
     // Second console
     Console console2 = new Console(58, 12);
     console2.Position = new Point(19, 11);
-    console2.DefaultBackground = Color.AnsiRed;
+    console2.Surface.DefaultBackground = Color.AnsiRed;
     console2.Clear();
-    console2.Print(1, 1, "Type on me!");
+    console2.Print(1, 1, "Johnny is a poopoo peepee:");
     console2.Cursor.Position = new Point(1, 2);
     console2.Cursor.IsEnabled = true;
     console2.Cursor.IsVisible = true;
