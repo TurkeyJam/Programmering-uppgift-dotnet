@@ -20,7 +20,15 @@ static void Startup(object? sender, GameHost host)
     Game.Instance.StartingConsole.SetBackground(18, 4, Color.DarkCyan);
     // X, Y, Glyph index or character
     Game.Instance.StartingConsole.SetGlyph(4, 4, '@'); // use '@' or 1, they're the same index glyph
-}*/
+}
+
+
+
+
+
+
+
+
 using SadConsole.Configuration;
 
 Settings.WindowTitle = "My SadConsole Game";
@@ -75,4 +83,19 @@ static void Startup(object? sender, GameHost host)
     container.Children.Add(console1);
 
     container.Children.MoveToBottom(console2);
-}
+}*/
+using SadConsole.Configuration;
+using SadConsoleGame;
+
+Settings.WindowTitle = "My SadConsole Game";
+
+Builder configuration = new Builder()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen<RootScreen>()
+    .IsStartingScreenFocused(true)
+    ;
+
+Game.Create(configuration);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
